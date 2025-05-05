@@ -18,8 +18,9 @@ public partial class InvoiceComponent
         [
             new InvoiceItem("Human Readable Part", "(hrp)", Invoice.HumanReadablePart),
             new InvoiceItem("Network", "", Invoice.Network),
-            new InvoiceItem("Amount MilliSatoshis", "", Invoice.AmountMilliSats.ToString()),
-            new InvoiceItem("Amount Satoshis", "", Invoice.AmountSats.ToString()),
+            new InvoiceItem("Amount MilliSatoshis", "", Invoice.Amount.MilliSatoshi.ToString()),
+            new InvoiceItem("Amount Satoshis", "", Invoice.Amount.Satoshi.ToString()),
+            new InvoiceItem("Amount BTC", "", Invoice.Amount.ToString()),
             new InvoiceItem("Timestamp", "", $"{Invoice.Timestamp.ToString()} | {DateTimeOffset.FromUnixTimeSeconds(Invoice.Timestamp).LocalDateTime:yyyy-MM-d HH:mm:ss zz}"),
             new InvoiceItem("Signature", "", Convert.ToHexString(Invoice.Signature.Signature)),
             new InvoiceItem("Recovery Flag", "", Invoice.Signature.RecoveryId.ToString()),
