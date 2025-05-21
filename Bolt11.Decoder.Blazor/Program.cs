@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using NLightning.Common.Crypto.Providers.JS;
+using NLightning.Infrastructure.Crypto.Providers.JS;
 
 namespace Bolt11.Decoder.Blazor;
 

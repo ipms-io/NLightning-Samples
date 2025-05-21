@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Components;
-using NLightning.Bolts.BOLT11;
+using NLightning.Bolt11.Models;
 
 namespace Bolt11.Decoder.Blazor.Components;
 

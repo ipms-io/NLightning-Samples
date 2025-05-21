@@ -1,19 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Version>1.0.2</Version>
-        <AssemblyVersion>1.0.2</AssemblyVersion>
-        <FileVersion>1.0.2</FileVersion>
+        <Version>1.0.3</Version>
+        <AssemblyVersion>1.0.3</AssemblyVersion>
+        <FileVersion>1.0.3</FileVersion>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <LangVersion>default</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="BlazorDeferredRemove" Version="0.2.5" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.13" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.13" PrivateAssets="all" />
-        <PackageReference Include="NLightning.Bolt11.Blazor" Version="2.0.0" />
+        <PackageReference Include="NLightning.Bolt11.Blazor" Version="3.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="global.json" />
     </ItemGroup>
 
 </Project>
