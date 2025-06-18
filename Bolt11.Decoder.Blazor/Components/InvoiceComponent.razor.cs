@@ -10,14 +10,19 @@ public partial class InvoiceComponent
 
     private IEnumerable<InvoiceItem>? _invoiceItems;
 
-    protected override void OnInitialized()
+    protected override void OnParametersSet()
     {
         if (Invoice == null) return;
 
+        if (Invoice.PaymentHash is null)
+            throw new NullReferenceException("Invoice payment hash is null");
+        if (Invoice.PaymentSecret is null)
+            throw new NullReferenceException("Invoice payment secret is null");
+        
         List<InvoiceItem> invoiceItems =
         [
             new InvoiceItem("Human Readable Part", "(hrp)", Invoice.HumanReadablePart),
-            new InvoiceItem("Network", "", Invoice.Network),
+            new InvoiceItem("Network", "", Invoice.BitcoinNetwork),
             new InvoiceItem("Amount MilliSatoshis", "", Invoice.Amount.MilliSatoshi.ToString()),
             new InvoiceItem("Amount Satoshis", "", Invoice.Amount.Satoshi.ToString()),
             new InvoiceItem("Amount BTC", "", Invoice.Amount.ToString()),
@@ -33,7 +38,7 @@ public partial class InvoiceComponent
             foreach (var routingInfo in Invoice.RoutingInfos)
             {
                 invoiceItems.Add(new InvoiceItem("Routing Info", "(r)", ""));
-                invoiceItems.Add(new InvoiceItem("\u21b3", "Public Key", routingInfo.PubKey.ToString()));
+                invoiceItems.Add(new InvoiceItem("\u21b3", "Public Key", routingInfo.CompactPubKey.ToString()));
                 invoiceItems.Add(new InvoiceItem("\u21b3", "Short Channel Id", routingInfo.ShortChannelId.ToString()));
                 invoiceItems.Add(new InvoiceItem("\u21b3", "Fee Base (MSats)", routingInfo.FeeBaseMsat.ToString()));
                 invoiceItems.Add(new InvoiceItem("\u21b3", "Fee Proportional (millionths)", routingInfo.FeeProportionalMillionths.ToString()));
@@ -72,7 +77,7 @@ public partial class InvoiceComponent
             invoiceItems.Add(new InvoiceItem("Payee PubKey", "(n)", Invoice.PayeePubKey.ToString()));
         }
 
-        // Check for description hash
+        // Check for description-hash
         if (Invoice.DescriptionHash is not null)
         {
             invoiceItems.Add(new InvoiceItem("Description Hash", "(h)", Invoice.DescriptionHash.ToString()));
