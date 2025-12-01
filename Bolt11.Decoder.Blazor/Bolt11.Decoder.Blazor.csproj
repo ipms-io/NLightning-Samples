@@ -3,9 +3,9 @@
     <PropertyGroup>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Version>1.0.4</Version>
-        <AssemblyVersion>1.0.4</AssemblyVersion>
-        <FileVersion>1.0.4</FileVersion>
+        <Version>1.0.5</Version>
+        <AssemblyVersion>1.0.5</AssemblyVersion>
+        <FileVersion>1.0.5</FileVersion>
         <TargetFramework>net9.0</TargetFramework>
         <LangVersion>default</LangVersion>
     </PropertyGroup>
@@ -14,7 +14,7 @@
         <PackageReference Include="BlazorDeferredRemove" Version="0.2.5" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.6" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.6" PrivateAssets="all" />
-        <PackageReference Include="NLightning.Bolt11.Blazor" Version="4.0.2" />
+        <PackageReference Include="NLightning.Bolt11.Blazor" Version="4.0.5" />
     </ItemGroup>
 
     <ItemGroup>
